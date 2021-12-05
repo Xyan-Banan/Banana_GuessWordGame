@@ -12,7 +12,7 @@ namespace WindowsFormsApplication2
 {
     public partial class Game : Form
     {
-        static string[] words = { };
+        static string[] words;
         static string current_word;
         static string show_text;
         static int lives;
@@ -20,17 +20,36 @@ namespace WindowsFormsApplication2
         public Game()
         {
             InitializeComponent();
-           
+            words = new string[] { "новый год", "дед мороз", "елка" };
+            lives_image = new PictureBox[] { pictureBox1, 
+                pictureBox2, 
+                pictureBox3, pictureBox4, pictureBox5, pictureBox6 };
+            current_word = "";
+            show_text = "";
+            lives = lives_image.Length;
         }
 
-        public static void start_game(RichTextBox wordArea)
+        void start_game(TextBox wordArea)
         {
-            
+            Random random = new Random();
+            int index = random.Next(0,words.Length);
+            current_word = words[index];
+            show_text = get_show_text(current_word);
+            wordArea.Text = show_text;
+            lives = lives_image.Length;
         }
-        public static void start_game(RichTextBox wordArea, PictureBox[] lives_image)
+
+        void start_game(TextBox wordArea, PictureBox[] lives_image)
         {
-            
+            start_game(wordArea);
+            Image image = Properties.Resources.live;
+            for(int i = 0; i < lives_image.Length; i++)
+            {
+                lives_image[i].Image = image;
+            }
         }
+
+        
 
         public static string get_show_text(string word)
         {
@@ -44,16 +63,7 @@ namespace WindowsFormsApplication2
 
         public static bool is_contains(string word, char symbol)
         {
-            bool isContains = false;
-            for (int i = 0; i < word.Length; i++)
-            {
-                if (word[i] == symbol)
-                {
-                    isContains = true;
-                    return isContains;
-                }
-            }
-            return isContains;
+            return false;
         }
 
         public static string get_new_show_text(string word, char symbol, string old_show_text)
