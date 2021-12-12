@@ -415,6 +415,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(388, 357);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(55, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
@@ -423,6 +424,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(388, 435);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(55, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
             // 
@@ -431,6 +433,7 @@
             this.pictureBox3.Location = new System.Drawing.Point(488, 435);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(55, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             // 
@@ -439,6 +442,7 @@
             this.pictureBox4.Location = new System.Drawing.Point(488, 357);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(55, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
             // 
@@ -447,6 +451,7 @@
             this.pictureBox5.Location = new System.Drawing.Point(595, 357);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(55, 50);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
             // 
@@ -455,6 +460,7 @@
             this.pictureBox6.Location = new System.Drawing.Point(595, 435);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(55, 50);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 4;
             this.pictureBox6.TabStop = false;
             // 

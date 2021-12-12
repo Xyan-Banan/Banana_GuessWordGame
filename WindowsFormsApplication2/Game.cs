@@ -27,8 +27,11 @@ namespace WindowsFormsApplication2
             current_word = "";
             show_text = "";
             lives = lives_image.Length;
+
+            start_game(wordArea, lives_image);
         }
 
+        //метод для начала игры
         void start_game(TextBox wordArea)
         {
             Random random = new Random();
@@ -39,6 +42,7 @@ namespace WindowsFormsApplication2
             lives = lives_image.Length;
         }
 
+        //метод для начала игры
         void start_game(TextBox wordArea, PictureBox[] lives_image)
         {
             start_game(wordArea);
@@ -49,32 +53,86 @@ namespace WindowsFormsApplication2
             }
         }
 
-        
-
-        public static string get_show_text(string word)
+        //шифрует загаданное слово
+        string get_show_text(string word)
         {
-            return "";
+            string result = "";
+            for(int i = 0; i < word.Length; i++)
+            {
+                if(word[i] != ' ')
+                {
+                    result += '*';
+                }
+                else
+                {
+                    result += ' ';
+                }
+            }
+            return result;
         }
 
-        public static void centering_text(RichTextBox word_area)
-        {
-            
-        }
 
-        public static bool is_contains(string word, char symbol)
+        //проверка наличия символа в строке
+        bool is_contains(string word, char symbol)
         {
+            for(int i = 0; i < word.Length; i++)
+            {
+                if(word[i] == symbol)
+                {
+                    return true;
+                }
+            }
             return false;
         }
 
-        public static string get_new_show_text(string word, char symbol, string old_show_text)
+        //заменяет звездочки на буквы
+        string get_new_show_text(string word, char symbol, string old_show_text)
         {
-            
-            return "";
+            string new_show_text = "";
+            for(int i = 0; i < word.Length; i++)
+            {
+                if(word[i] == symbol)
+                {
+                    new_show_text += symbol;
+                }
+                else
+                {
+                    new_show_text += old_show_text[i];
+                }
+            }
+            return new_show_text;
         }
 
-        public static void button_symbol_click(TextBox wordArea, char symbol, Button cur_button, Button startButton)
+        //функция по клику на кнопку
+        void button_symbol_click(TextBox wordArea, char symbol, Button cur_button, Button startButton)
         {
-            
+            bool is_cont = is_contains(current_word, symbol);
+            if (is_cont)
+            {
+                show_text = get_new_show_text(current_word, symbol, show_text);
+                wordArea.Text = show_text;
+            }
+            else
+            {
+                lives--;
+                lives_image[lives].Image = null;
+            }
+            if(lives == 0)
+            {
+                using(lossForm lossForm = new lossForm())
+                {
+                    lossForm.ShowDialog();
+                }
+                startButton.PerformClick();
+            }
+            else if(!is_contains(show_text, '*'))
+            {
+                using (successForm success = new successForm())
+                {
+                    success.ShowDialog();
+                }
+            }
+            cur_button.Enabled = false;
         }
 
         private void Game_Load(object sender, EventArgs e)
@@ -94,7 +152,7 @@ namespace WindowsFormsApplication2
 
         private void startGame_Click(object sender, EventArgs e)
         {
-            
+            start_game(wordArea,lives_image);
         }
 
         private void button2_Click(object sender, EventArgs e)
