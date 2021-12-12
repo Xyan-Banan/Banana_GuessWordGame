@@ -24,12 +24,12 @@ namespace WindowsFormsApplication2
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void formClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
